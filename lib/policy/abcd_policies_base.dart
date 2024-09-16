@@ -2,10 +2,10 @@ import 'package:abcd/policy/abcd_policy_base.dart';
 
 class AbcdPoliciesBase {
   AbcdPoliciesBase({
-    required this.policies,
-  });
+    required List<AbcdPolicyBase> policies,
+  }) : _policies = policies;
 
-  final List<AbcdPolicyBase> policies;
+  final List<AbcdPolicyBase> _policies;
 
-  get attributes => policies.expand((p) => p.attributes).toSet().toList();
+  get attributes => _policies.expand((p) => p.attributes).toSet().toList();
 }

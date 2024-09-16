@@ -4,13 +4,13 @@ import 'package:abcd/policy/abcd_policy_base.dart';
 
 class AbcdRoleBase {
   AbcdRoleBase({
-    required this.attributes,
-  });
+    required List<AbcdAttributeBase> attributes,
+  }) : _attributes = attributes.toSet().toList();
 
-  final List<AbcdAttributeBase> attributes;
+  final List<AbcdAttributeBase> _attributes;
 
   bool includesAttribute(AbcdAttributeBase attribute) {
-    return attributes.contains(attribute);
+    return _attributes.contains(attribute);
   }
 
   bool includesPolicy(AbcdPolicyBase policy) {
